@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simple typewriter text exercise</title>
+
+    <meta name="description" content="A simple exercise template." />
+    <!-- styles -->
+    <style></style>
+  </head>
+  <body>
+    <p id="para-0"></p>
+    <p id="para-1"></p>
+    <p id="para-2"></p>
+    <p id="para-3"></p>
+    <p id="para-4"></p>
+    <p id="para-5"></p>
+    <p id="para-6"></p>
+    <p id="para-7"></p>
+    <p id="para-8"></p>
+    <p id="para-9"></p>
+    <p id="para-10"></p>
+    <p id="para-11"></p>
+    <p id="para-12"></p>
+    <p id="para-13"></p>
+    <p id="para-14"></p>
+    <p id="para-15"></p>
+    <!-- script -->
+    <script>
+      const text = [
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died.",
+        "You died."
+      ];
+      let paraCounter = 0;
+      let charCounter = 0;
+      let typeWriterInterval;
+
+      function addLetter() {
+        if (paraCounter < text.length) {
+          const para = document.getElementById("para-" + paraCounter);
+          para.innerHTML = text[paraCounter].slice(0, charCounter + 1);
+          charCounter++;
+          if (charCounter >= text[paraCounter].length) {
+            paraCounter++;
+            charCounter = 0;
+          }
+        } else {
+          clearInterval(typeWriterInterval);
+        }
+      }
+      typeWriterInterval = setInterval(addLetter, 100);
+    </script>
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+  </body>
+</html>
+<style>
+  body {
+    font-family: "Fira Code", serif;
+    margin: 2em;
+    background-color: white;
+    color: red;
+    font-size: 1.2em;
+  }
+  h1 {
+    color: #7BE065;
+  }
+</style>
